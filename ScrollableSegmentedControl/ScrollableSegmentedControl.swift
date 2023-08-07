@@ -23,7 +23,7 @@ public enum ScrollableSegmentedControlSegmentStyle: Int {
     private var collectionViewController:CollectionViewController?
     private var segmentsData = [SegmentData]()
     private var longestTextWidth:CGFloat = 10
-    
+    //df
     /**
      A Boolean value that determines if the width of all segments is going to be fixed or not.
      
@@ -259,6 +259,21 @@ public enum ScrollableSegmentedControlSegmentStyle: Int {
         }
         
         return safeSegmentData(forIndex: segment).title
+    }
+    
+    @objc public func set3To5SegmentColor(_ color: UIColor) {
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.systemFont(ofSize: 18),
+            .foregroundColor: color
+        ]
+
+        for index in 3...5 {
+            if index < segmentsData.count, let title = segmentsData[index].title {
+                segmentsData[index].normalAttributedTitle = NSAttributedString(string: title, attributes: attributes)
+                
+            }
+        }
+        reloadSegments()
     }
     
     
