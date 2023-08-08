@@ -261,13 +261,13 @@ public enum ScrollableSegmentedControlSegmentStyle: Int {
         return safeSegmentData(forIndex: segment).title
     }
     
-    @objc public func set3To5SegmentColor(_ color: UIColor) {
+    @objc public func changeSpecifiedSegmentColor(_ color: UIColor, indexArray: [Int]) {
         let attributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.systemFont(ofSize: 18),
             .foregroundColor: color
         ]
 
-        for index in 3...5 {
+        for index in indexArray {
             if index < segmentsData.count, let title = segmentsData[index].title {
                 segmentsData[index].normalAttributedTitle = NSAttributedString(string: title, attributes: attributes)
                 
