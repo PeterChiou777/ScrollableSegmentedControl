@@ -593,7 +593,7 @@ public enum ScrollableSegmentedControlSegmentStyle: Int {
         
         override var tintColor: UIColor!{
             didSet{
-                underlineView?.backgroundColor = tintColor
+                underlineView?.backgroundColor = .red
             }
         }
         
